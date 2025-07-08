@@ -1,5 +1,7 @@
+/* ===== 1. Global Styles & Variables (สไตล์และตัวแปรกลาง) ===== */
 :root {
-  --primary-color: #007bff; /* สีหลัก (ฟ้า) */
+  /* ## คุณสามารถเปลี่ยนสีธีมหลักของเว็บได้ที่นี่ ## */
+  --primary-color: #0d6efd; /* อัปเดตให้ตรงกับสี Primary ของ Bootstrap */
   --secondary-color: #6c757d; /* สีรอง (เทา) */
   --bg-color: #f8f9fa; /* สีพื้นหลัง */
   --surface-color: #ffffff; /* สีพื้นหลังของ Card */
@@ -8,234 +10,198 @@
   --border-color: #dee2e6; /* สีเส้นขอบ */
 }
 
+/* การตั้งค่า Reset และ Box Sizing พื้นฐาน */
+/* Bootstrap จัดการเรื่องนี้ให้แล้ว แต่ใส่ไว้เผื่อ custom element */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Kanit', sans-serif;
-    background-color: var(--bg-color);
-    color : var(--text-color);
-    line-height: 1.6;
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
+/* ไม่จำเป็นต้องใช้ .container ของเราเองแล้ว เพราะ Bootstrap มีให้ */
+/* แต่เก็บไว้เผื่อส่วนอื่นที่ไม่ได้ใช้ Bootstrap */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-section{
-    padding: 60px 0;
+section {
+  padding: 60px 0;
 }
 
-.setction-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 40px;
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 40px;
 }
 
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+/* ===== 2. Custom Button (ถ้าต้องการใช้ปุ่มดีไซน์ของเราเอง) ===== */
+.custom-btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color);
+  transition: background-color 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #0056b3; /* สีเข้มขึ้นเมื่อ hover */
+.custom-btn:hover {
+  background-color: #0b5ed7;
 }
 
-.btn-secondary {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--primary-color);
-    padding: 8px 18px;
-    text-decoration: none;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
 
-:btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-}
-
-.navbar{
-    display :flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--surface-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* ===== 3. Header & Navbar (ส่วนหัวและเมนู) ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1030; /* z-index ของ Bootstrap navbar คือ 1030 */
 }
 
 .nav-logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 .nav-menu {
-    display: flex;
-    list-style: none;
-    align-items: center;
-    gap :20px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 20px;
 }
 
 .nav-link {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 .nav-link:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
+/* Hamburger Menu (จะแสดงในจอมือถือ) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--text-color);
+}
+
+/* ===== 4. Hero Section (ส่วนเปิดตัว) ===== */
 .hero {
-    background-color: var(--surface-color);
-    text-align: center;
-    padding: 80px 0;
+  background-color: var(--surface-color);
+  text-align: center;
+  padding: 80px 0;
 }
 
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    border: 5px solid var(--primary-color);
-    margin-bottom: 20px;
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  margin-bottom: 20px;
 }
 
 .hero-title {
-    font-size: 3rem;
-    color: var(--heading-color);
-    margin-bottom: 10px;
+  font-size: 3rem;
+  color: var(--heading-color);
+  margin-bottom: 10px;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 30px;
-}   
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+}
 
-.setction-text{
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 40px auto;
+.section-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
 }
 
 .subsection-title {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--heading-color);
-    margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--heading-color);
+  margin-bottom: 20px;
 }
 
-.skills-grid{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    max-width: 700px;
-    margin: 0 auto;
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .skill-item {
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 12px 16px;
-    text-align: center;
-    transition: transform 0.3s ease;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 12px 16px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
+/* ===== 6. Projects Section (ส่วนผลงาน) ===== */
+/* สไตล์ส่วนใหญ่ถูกจัดการโดย Bootstrap แล้ว เราไม่จำเป็นต้องเขียน CSS ส่วนนี้อีก */
 #projects {
-    background-color: var(--bg-color);
+  background-color: var(--bg-color);
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.project-card{
-    background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    transform: translateY(0);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.project-img{
+/* ทำให้ iframe ใน card ของ bootstrap responsive */
+.card .ratio iframe {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.project-info{
-    padding: 25px;
-}
 
-.project-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.project-description {
-    font-size: 1rem;
-    color: var(--secondary-color);
-    margin-bottom: 15px;
-}
-
-.project-tags span {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 0.9rem;
-    margin-right: 5px;
-}
-
-.project-video{
-    margin-bottom: 15px;
-}
-
+/* ===== 7. Footer & Contact (ส่วนท้ายและข้อมูลติดต่อ) ===== */
 footer {
-    background-color: var(--surface-color);
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
 }
 
 .contact-email {
@@ -254,7 +220,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .copyright {
@@ -262,3 +228,45 @@ footer {
   font-size: 0.9rem;
   color: var(--secondary-color);
 }
+
+/* ===== 8. Responsive (Media Queries) ===== */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%; /* ซ่อนเมนูไว้นอกจอทางซ้าย */
+    top: 70px; /* เว้นระยะจาก navbar */
+    flex-direction: column;
+    background-color: var(--surface-color);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-menu.active {
+    left: 0; /* แสดงเมนูเมื่อมีคลาส active */
+  }
+
+  .nav-item {
+    padding: 1.5rem 0;
+  }
+
+  .hamburger {
+    display: block; /* แสดงปุ่ม Hamburger */
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+
+/* ไม่จำเป็นต้องใช้ Media Query สำหรับ Project Grid แล้ว เพราะ Bootstrap จัดการให้ */
