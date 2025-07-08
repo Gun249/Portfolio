@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Your Custom CSS (ต้องอยู่หลัง Bootstrap CSS) -->
     <link rel="stylesheet" href="style.css">
@@ -20,16 +21,19 @@
     <!-- ===== Header & Navbar ===== -->
     <header>
         <nav class="navbar">
-            <a href="#home" class="nav-logo">Gunthorn</a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#about" class="nav-link">About me</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact me</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <a href="#home" class="navbar-brand">Gunthorn</a>
+            <div class="navbar-menu">
+                <ul class="nav-menu">
+                    <li class="nav-link"><a href="#about" class="nav-link">About me</a></li>
+                    <li class="nav-link"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-link"><a href="#contact" class="nav-link">Contact me</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
             </div>
         </nav>
     </header>
@@ -39,25 +43,66 @@
         <section id="home" class="hero">
             <div class="container">
                 <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="Gunthorn's Avatar" class="profile-img">
-                <h1 class="hero-title">Gunthorn</h1>
+                <h1 class="hero-title">Gunthorn Siricharoenwat</h1>
                 <p class="hero-subtitle">Developer</p>
                 <a href="#projects" class="btn custom-btn">View Projects</a>
             </div>
         </section>
 
-        <!-- ===== About Me Section ===== -->
+        <!--About me-->
         <section id="about">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
-                <p class="section-text">Hello! I'm Gunthorn, a passionate developer with a love for creating innovative solutions. I specialize in web development and enjoy working on projects that challenge my skills and creativity.</p>
+                <p class="section-text">Hello! I'm Gunthorn</p>
+
+        <!--My education-->
+        <div class="education">
+            <h3 class="subsection-title">Education</h3>
+            <div class="education-timeline">
+                <div class="education-entry">
+                    <div class="education-icon">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="education-details">
+                        <h5 class="education-institution">Benjamin School</h5>
+                        <p class="education-major">English-Mathematics Program</p>
+                        <p class="education-date text-muted">2016 - 2022</p>
+                        <p class="education-GPA">GPA: 2.85</p>
+                    </div>
+                </div>
+                <div class="education-entry">
+                    <div class="education-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-details">
+                        <h5 class="education-institution">Bangkok University</h5>
+                        <p class="education-major">Computer Science</p>
+                        <p class="education-date text-muted">2022 - Present</p>
+                        <p class="education-GPA">GPA: 3.70</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- My Skill -->
                 <h3 class="subsection-title">My Skills</h3>
                 <div class="skills-grid">
                     <div class="skill-item">Python</div>
                     <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">SQL</div>
-                    <div class="skill-item">React</div>
-                    <div class="skill-item">Git & GitHub</div>
-                    <div class="skill-item">Docker</div>
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Prisma</div>
+                    <div class="skill-item">SQL (MYSQL)</div>
+                    <div class="skill-item">MongoDB</div>
+                    <div class="skill-item">Git</div>
+                    <div class="skill-item">Postman</div>
+                </div>
+                <div class = "p-3">
+                    <h3 class ="subsection-title p">My Soft Skills</h3>
+                    <div class ="skills-grid">
+                        <div class="skill-item">Teamwork</div>
+                        <div class="skill-item">Punctuality</div>
+                        <div class="skill-item">Self-learning</div>
+                        <div class="skill-item">Adaptability</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -68,27 +113,6 @@
                 <h2 class="section-title">Projects</h2>
                 <!-- Bootstrap Grid System for Cards -->
                 <div class="row row-cols-1 row-cols-md-2 g-4">
-                    <!-- Project Card 1 -->
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="ratio ratio-16x9">
-                                <iframe src="https://www.youtube.com/embed/WcCQpHnTsKo?si=nouURjNCfX7Fob1B" title="YouTube video player" allowfullscreen></iframe>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Operation Midnight Hammer</h5>
-                                <p class="card-text"><strong>Bomb Iran</strong></p>
-                                <div>
-                                    <span class="badge bg-primary">HTML</span>
-                                    <span class="badge bg-danger">CSS</span>
-                                    <span class="badge bg-warning text-dark">JavaScript</span>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-outline-primary w-100">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project Card 2 -->
                     <div class="col">
                         <div class="card h-100">
                            <div class="ratio ratio-16x9">
@@ -109,20 +133,37 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Project Card 3 -->
                     <div class="col">
                         <div class="card h-100">
                             <div class="ratio ratio-16x9">
                                 <iframe src="https://www.youtube.com/embed/1b2k0j3a4e8?si=5g7Zy6f4z5X9d8eF" title="YouTube video player" allowfullscreen></iframe>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Gunthorn's Portfolio</h5>
-                                <p class="card-text">A personal portfolio website showcasing my projects and skills as a developer.</p>
+                                <h5 class="card-title">CookMate</h5>
+                                <p class="card-text">CookMate is a sophisticated mobile application designed to provide users with an engaging and intuitive platform for learning, creating, and sharing diverse recipes.</p>
                                 <div>
-                                    <span class="badge bg-primary">HTML</span>
-                                    <span class="badge bg-danger">CSS</span>
-                                    <span class="badge bg-warning text-dark">JavaScript</span>
-                                    <span class="badge bg-success">Node.js</span>
+                                    <span class="badge bg-primary">.net maui</span>
+                                    <span class="badge bg-danger">C#</span>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="https://github.com/Gun249/CookMate" class="btn btn-outline-primary w-100">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.youtube.com/embed/1b2k0j3a4e8?si=5g7Zy6f4z5X9d8eF" title="YouTube video player" allowfullscreen></iframe>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">AI-righthere</h5>
+                                <p class="card-text">AI-righthere is a web application that allows users to interact with AI models, providing a platform for various AI-driven functionalities.</p>
+                                <p class="card-text">My position is Backend dev</p>
+                                <div>
+                                    <span class="badge bg-primary">Python</span>
+                                    <span class="badge bg-danger">C#</span>
+                                    <span class="badge bg-warning text-dark">.net maui</span>
                                 </div>
                             </div>
                         </div>
@@ -130,18 +171,18 @@
                 </section>
             </main>
 
-            
+
     <!-- ===== Footer & Contact ===== -->
-    <footer id="contact">
+    <footer id="contact" class = "text-dark text-center py-4 mt-auto">
         <div class="container">
             <h2 class="section-title">Contact me</h2>
-            <p class="contact-email">Email: [your.email@example.com]</p>
+            <p class="contact-email">Email: gunthorn.siri@bumail.net</p>
             <div class="social-links">
                 <a href="https://github.com/Gunthorn">GitHub</a>
                 <a href="https://www.linkedin.com/in/gunthorn">LinkedIn</a>
                 <a href="https://twitter.com/Gunthorn">Twitter</a>
             </div>
-            <p class="copyright">&copy; 2025 Gunthorn. All rights reserved.</p>
+            <p class="copyright" id="copyright">&copy; 2025 Gunthorn. All rights reserved.</p>
         </div>
     </footer>
 

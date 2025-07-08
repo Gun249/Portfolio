@@ -268,5 +268,41 @@ footer {
   }
 }
 
+.education-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-/* ไม่จำเป็นต้องใช้ Media Query สำหรับ Project Grid แล้ว เพราะ Bootstrap จัดการให้ */
+.education-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.education-icon {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    padding-top: 5px;
+}
+
+.education-details h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.education-details p {
+    margin-bottom: 5px;
+}
+
+.education-major {
+    font-style: italic;
+}
+
+.education-GPA {
+    color: var(--secondary-color);
+}
