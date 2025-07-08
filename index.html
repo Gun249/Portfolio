@@ -25,8 +25,8 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <img src="https://via.placeholder.com/150" alt="Gunthorn's Avatar" class="avatar">
+            <div class="container">
+                <img src="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg" alt="Gunthorn's Avatar" class="avatar">
                 <h1 class="hero-title">Gunthorn</h1>
                 <p class="hero-subtitle">Developer</p>
                 <a href="#projects" class="btn">View Projects</a>
@@ -34,39 +34,41 @@
         </section>
 
         <section id ="about">
-            <div class="about-content">
+            <div class="container">
                 <h2 class = "section-title">About Me</h2>
                 <p class="about-text">Hello! I'm Gunthorn, a passionate developer with a love for creating innovative solutions. I specialize in web development and enjoy working on projects that challenge my skills and creativity.</p>
-                <h3 class="Skill">My skill</h3>
-                <div class="skills">
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Python</li>
-                        <li>React</li>
-                    </ul>
+                <h3 class="subsection">My skill</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">SQL</div>
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">Git & GitHub</div>
+                    <div class="skill-item">Docker</div>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <div class="projects-content">
+            <div class="container">
                 <h2 class="section-title">Projects</h2>
                 <div class="project-grid">
                     <div class="project-card">
                         <h3 class="project-title">Operation Midnight Hammer</h3>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WcCQpHnTsKo?si=nouURjNCfX7Fob1B" 
-                        title="YouTube video player" frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="project-video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/WcCQpHnTsKo?si=nouURjNCfX7Fob1B" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                        </div>
                         <p class="project-description">Bomb Iran</p>
                         <div class="project-tags">
                             <span class="tag">HTML</span>
                             <span class="tag">CSS</span>
                             <span class="tag">JavaScript</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="#" class="btn-secondary">View Project</a>
                     </div>
                     <!-- <div class="project-card">
                         <h3 class="project-title">Project 2</h3>
@@ -85,6 +87,19 @@
                         <!-- <p class="project-description">A personal blog where I share my thoughts on technology and development.</p> -->
                     </div>
                 </div>
+        </section>
     </main>
+    <footer>
+        <div class="container">
+            <h2 class="section-title">Contact me</h2>
+            <p class = "contact-email">Email: gunthorn.siri@gmail.com</p>
+            <div class="social-links">
+                <li><a href="https://github.com/Gunthorn">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/gunthorn">LinkedIn</a></li>
+                <li><a href="https://twitter.com/Gunthorn">Twitter</a></li>
+            </div>
+            <p class = "copyright">&copy; 2025 Gunthorn. All rights reserved.</p>
+        </div>
+    </footer>
     </body>
 </html>
