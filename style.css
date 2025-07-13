@@ -8,6 +8,19 @@
   --text-color: #212529; /* สีตัวอักษรหลัก */
   --heading-color: #000000; /* สีหัวข้อ */
   --border-color: #dee2e6; /* สีเส้นขอบ */
+  --shadow: rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --primary-color: #4dabf7; /* สีฟ้าสว่างสำหรับ dark mode */
+  --secondary-color: #adb5bd; /* สีเทาสว่าง */
+  --bg-color: #121212; /* สีพื้นหลังมืด */
+  --surface-color: #1e1e1e; /* สีพื้นหลังของ Card มืด */
+  --text-color: #e9ecef; /* สีตัวอักษรสว่าง */
+  --heading-color: #ffffff; /* สีหัวข้อสว่าง */
+  --border-color: #343a40; /* สีเส้นขอบมืด */
+  --shadow: rgba(0, 0, 0, 0.3); /* เงาเข้ม */
 }
 
 /* การตั้งค่า Reset และ Box Sizing พื้นฐาน */
@@ -72,17 +85,44 @@ section {
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--surface-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1030; /* z-index ของ Bootstrap navbar คือ 1030 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-logo {
+.navbar-brand {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--primary-color);
   text-decoration: none;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  margin-left: 15px;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.theme-toggle i {
+  font-size: 1.2rem;
 }
 
 .nav-menu {
@@ -173,17 +213,38 @@ section {
   border-radius: 5px;
   padding: 12px 16px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .skill-item:hover {
   transform: translateY(-5px);
+  background-color: var(--primary-color);
+  color: white;
 }
 
 /* ===== 6. Projects Section (ส่วนผลงาน) ===== */
 /* สไตล์ส่วนใหญ่ถูกจัดการโดย Bootstrap แล้ว เราไม่จำเป็นต้องเขียน CSS ส่วนนี้อีก */
 #projects {
   background-color: var(--bg-color);
+}
+
+.card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+.card-title {
+  color: var(--heading-color);
+}
+
+.card-text {
+  color: var(--text-color);
 }
 
 /* ทำให้ iframe ใน card ของ bootstrap responsive */
@@ -223,6 +284,29 @@ footer {
   color: var(--primary-color);
 }
 
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color) !important;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--border-color);
+}
+
+.social-link:hover {
+  color: white !important;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.social-link i {
+  font-size: 1.2rem;
+}
+
 .copyright {
   margin-top: 30px;
   font-size: 0.9rem;
@@ -240,7 +324,8 @@ footer {
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 27px var(--shadow);
+    border-top: 1px solid var(--border-color);
   }
 
   .nav-menu.active {
@@ -249,6 +334,10 @@ footer {
 
   .nav-item {
     padding: 1.5rem 0;
+  }
+
+  .theme-toggle {
+    margin: 0 auto;
   }
 
   .hamburger {
@@ -266,6 +355,14 @@ footer {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
 }
 
 .education-timeline {
@@ -282,6 +379,11 @@ footer {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     margin-bottom: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.education-entry:hover {
+    border-color: var(--primary-color);
 }
 
 .education-icon {
@@ -293,10 +395,12 @@ footer {
 .education-details h5 {
     font-weight: 600;
     margin-bottom: 5px;
+    color: var(--heading-color);
 }
 
 .education-details p {
     margin-bottom: 5px;
+    color: var(--text-color);
 }
 
 .education-major {
@@ -315,7 +419,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
+  background-color: var(--border-color);
 }
 
 .carousel-image-container img {
@@ -323,4 +427,44 @@ footer {
   height: 100%;
   object-fit: cover; /* ทำให้รูปเต็มกรอบโดยไม่บิดเบี้ยว */
   object-position: center; /* จัดตำแหน่งรูปให้อยู่กึ่งกลาง */
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Bootstrap dropdown customization for dark theme */
+.dropdown-menu {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 25px var(--shadow);
+}
+
+.dropdown-item {
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
 }

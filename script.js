@@ -8,8 +8,8 @@ hamburger.addEventListener("click", () => {
 });
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    // ป้องกันไม่ให้ปิดเมนูเมื่อคลิกปุ่มสลับภาษา
-    if (!n.hasAttribute('onclick')) {
+    // ป้องกันไม่ให้ปิดเมนูเมื่อคลิกปุ่มสลับภาษาหรือปุ่มสลับธีม
+    if (!n.hasAttribute('onclick') && !n.closest('.theme-toggle')) {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }
@@ -47,7 +47,8 @@ const translations = {
         project2Desc: "CookMate is a recipe management application.I was responsible for developing the backend system, including user authentication, database integration, and features for adding, editing, and saving favorite recipes.",
         project3Title: "Righthere",
         project3Desc: "RightHere is a diary application with built-in AI that analyzes users’ emotions when they log their entries. I was responsible for developing and training the emotion analysis and recommendation AI system. The project used two models: <br><br> 1. The first model is a custom-trained model for assessing user emotions based on their diary entries. <br><br> 2. The second model is Gemini, which has been fine-tuned to provide appropriate and natural emotional advice.",
-        project3Role: "My position is Backend dev",
+        project4Title: "Task Manager",
+        project4Desc: "Task Manager is a project management tool that allows team leaders to input project details. The system then generates subtasks and related questions for team members. After team members submit their answers, the system analyzes their responses to identify suitable roles and matches them with the appropriate tasks. <br><br> I was responsible for developing the AI system, which consists of two main components: <br><br> The Gemini model, which performs two key functions: <br><br> 1.Analyzes project input from team leaders to generate subtasks and questions <br><br> 2.Analyzes team members’ responses to determine their most suitable roles <br><br> A second AI model that I developed and trained using a Siamese Neural Network, which matches each member’s role with the most appropriate task based on the project context",
         viewOnGithub: "View on GitHub",
         contactTitle: "Contact me",
         copyrightText: `© ${new Date().getFullYear()} Gunthorn. All rights reserved.`
@@ -79,6 +80,8 @@ const translations = {
         project2Desc: "CookMate เป็นแอปพลิเคชันสำหรับจดและจัดการสูตรอาหาร ผมรับผิดชอบในการพัฒนาระบบหลังบ้านของแอป โดยดูแลในส่วนของระบบยืนยันตัวตน (Authentication), การเชื่อมต่อและจัดการฐานข้อมูล รวมถึงฟีเจอร์สำหรับเพิ่ม แก้ไข และจัดเก็บสูตรอาหารที่ผู้ใช้ชื่นชอบ (Favorites)",
         project3Title: "AI-righthere",
         project3Desc: "RightHere เป็นแอปพลิเคชันสำหรับจดไดอารี่ที่มี AI คอยวิเคราะห์อารมณ์ของผู้ใช้ในขณะบันทึก ผมรับผิดชอบในการพัฒนาและฝึกสอนโมเดล AI สำหรับวิเคราะห์อารมณ์และให้คำแนะนำ โดยใช้โมเดล 2 แบบ ได้แก่ <br><br> 1. โมเดลแรกเป็นโมเดลที่ผมเทรนขึ้นมาเองสำหรับการประเมินอารมณ์ของผู้ใช้ <br><br> 2. โมเดลที่สองคือ Gemini ซึ่งผ่านการ Fine-tune เพื่อให้เหมาะสมกับการให้คำแนะนำด้านอารมณ์อย่างเหมาะสมและเป็นธรรมชาติ",
+        project4Title : "Task Manager",
+        project4Desc : "Task Manager เป็นเครื่องมือสำหรับการจัดการโปรเจกต์ที่ช่วยให้หัวหน้าทีมสามารถป้อนรายละเอียดโปรเจกต์ ระบบจะสร้างงานย่อยและคำถามที่เกี่ยวข้องสำหรับสมาชิกทีม หลังจากที่สมาชิกทีมตอบคำถาม ระบบจะวิเคราะห์คำตอบเพื่อหาบทบาทที่เหมาะสมที่สุดและจับคู่กับงานที่เหมาะสม <br><br> ผมรับผิดชอบในการพัฒนาระบบ AI ซึ่งประกอบด้วย 2 ส่วนหลัก ได้แก่ <br><br> โมเดล Gemini ที่ทำหน้าที่ 2 อย่างคือ <br><br> 1. วิเคราะห์ข้อมูลโปรเจกต์จากหัวหน้าทีมเพื่อสร้างงานย่อยและคำถาม <br><br> 2. วิเคราะห์คำตอบของสมาชิกทีมเพื่อหาบทบาทที่เหมาะสมที่สุด <br><br> โมเดล AI ที่ผมพัฒนาและฝึกสอนโดยใช้ Siamese Neural Network เพื่อจับคู่บทบาทของสมาชิกกับงานที่เหมาะสมที่สุดตามบริบทของโปรเจกต์",
         viewOnGithub: "ดูบน GitHub",
         contactTitle: "ติดต่อฉัน",
         copyrightText: `© ${new Date().getFullYear()} กันต์ธร. สงวนลิขสิทธิ์`
@@ -101,8 +104,47 @@ function setLanguage(language) {
 
 // 3. ตรวจสอบว่าเคยเลือกภาษาไว้หรือไม่ ตอนเปิดหน้าเว็บ
 document.addEventListener('DOMContentLoaded', () => {
+    // เริ่มต้นธีม
+    initializeTheme();
+    
+    // เริ่มต้นภาษา
     const savedLanguage = localStorage.getItem('language') || 'en'; // ถ้าไม่มีให้ใช้ 'en' เป็นค่าเริ่มต้น
     setLanguage(savedLanguage);
 });
 
 // ===== END: โค้ดสำหรับสลับภาษา =====
+
+// ===== Theme Toggle Functionality =====
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const themeIcon = document.getElementById('theme-icon');
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    
+    // เปลี่ยนไอคอน
+    if (newTheme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+    } else {
+        themeIcon.className = 'fas fa-moon';
+    }
+    
+    // บันทึกธีมลงใน localStorage
+    localStorage.setItem('theme', newTheme);
+}
+
+// ตรวจสอบธีมที่บันทึกไว้เมื่อโหลดหน้า
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    const themeIcon = document.getElementById('theme-icon');
+    
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    if (savedTheme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+    } else {
+        themeIcon.className = 'fas fa-moon';
+    }
+}
+
+// ===== END: Theme Toggle Functionality =====
