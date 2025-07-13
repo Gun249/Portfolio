@@ -306,3 +306,21 @@ footer {
 .education-GPA {
     color: var(--secondary-color);
 }
+
+/* Carousel Image Container สำหรับให้ภาพพอดีกับกรอบ */
+.carousel-image-container {
+  width: 100%;
+  height: 350px; /* เพิ่มความสูงจาก 250px เป็น 350px */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.carousel-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ทำให้รูปเต็มกรอบโดยไม่บิดเบี้ยว */
+  object-position: center; /* จัดตำแหน่งรูปให้อยู่กึ่งกลาง */
+}
