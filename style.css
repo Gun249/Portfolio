@@ -468,3 +468,77 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+
+.education-GPA {
+    color: var(--secondary-color);
+}
+
+
+/* ========== EXPERIENCE SECTION STYLES (เพิ่มส่วนนี้) ========== */
+#experience {
+    background-color: var(--bg-color);
+}
+
+.experience-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.experience-entry:hover {
+    border-color: var(--primary-color);
+}
+
+.experience-icon {
+    /* ลบ font-size และ color ออก เพราะตอนนี้เป็นรูปภาพแล้ว */
+    /* padding-top: 5px; สามารถเก็บไว้หรือปรับตามความเหมาะสม */
+    display: flex; /* ใช้ flexbox เพื่อจัดกึ่งกลางรูปภาพภายใน */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    justify-content: center; /* จัดกึ่งกลางแนวนอน */
+    min-width: 50px; /* กำหนดความกว้างขั้นต่ำของ container icon */
+    min-height: 50px; /* กำหนดความสูงขั้นต่ำของ container icon */
+}
+
+.experience-logo {
+    max-width: 50px; /* กำหนดความกว้างสูงสุดของโลโก้ */
+    max-height: 50px; /* กำหนดความสูงสูงสุดของโลโก้ */
+    object-fit: contain; /* ทำให้รูปภาพพอดีโดยไม่ถูกตัดหรือบิดเบือน */
+    border-radius: 4px; /* ถ้าต้องการให้มีขอบมนเล็กน้อย */
+}
+.experience-details h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--heading-color);
+}
+
+.experience-details p {
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.experience-role {
+    font-style: italic;
+}
+
+.experience-desc {
+    padding-left: 20px; /* เพิ่มระยะห่างให้ bullet list */
+    color: var(--text-color);
+}
+/* ========== END EXPERIENCE SECTION STYLES ========== */
+
+
+/* Carousel Image Container สำหรับให้ภาพพอดีกับกรอบ */
+.carousel-image-container {
+  width: 100%;
+}
