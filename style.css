@@ -21,6 +21,10 @@
   --heading-color: #ffffff; /* สีหัวข้อสว่าง */
   --border-color: #343a40; /* สีเส้นขอบมืด */
   --shadow: rgba(0, 0, 0, 0.3); /* เงาเข้ม */
+
+  .text-muted {
+  color: var(--secondary-color) !important;
+  }
 }
 
 /* การตั้งค่า Reset และ Box Sizing พื้นฐาน */
