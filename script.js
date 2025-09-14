@@ -9,7 +9,11 @@ hamburger.addEventListener("click", () => {
 
 document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
     // ป้องกันไม่ให้ปิดเมนูเมื่อคลิกปุ่มสลับภาษาหรือปุ่มสลับธีม
-    if (!n.hasAttribute('onclick') && !n.closest('.theme-toggle')) {
+    // และไม่ให้ปิดเมื่อคลิกในเมนูแบบ dropdown
+    if (!n.hasAttribute('onclick') && 
+        !n.closest('.theme-toggle') && 
+        !n.closest('.dropdown') &&
+        !n.classList.contains('dropdown-toggle')) {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }
@@ -51,6 +55,7 @@ const translations = {
         project4Desc: "Task Manager is a project management tool that allows team leaders to input project details. The system then generates subtasks and related questions for team members. After team members submit their answers, the system analyzes their responses to identify suitable roles and matches them with the appropriate tasks. <br><br> I was responsible for developing the AI system, which consists of two main components: <br><br> The Gemini model, which performs two key functions: <br><br> 1.Analyzes project input from team leaders to generate subtasks and questions <br><br> 2.Analyzes team members’ responses to determine their most suitable roles <br><br> A second AI model that I developed and trained using a Siamese Neural Network, which matches each member’s role with the most appropriate task based on the project context",
         viewOnGithub: "View on GitHub",
         contactTitle: "Contact me",
+        linkedinText: "LinkedIn",
         copyrightText: `© ${new Date().getFullYear()} Gunthorn. All rights reserved.`,
         navExperience: "Experience",
                 experienceTitle: "Experience",
@@ -97,6 +102,7 @@ const translations = {
         project4Desc : "Task Manager เป็นเครื่องมือสำหรับการจัดการโปรเจกต์ที่ช่วยให้หัวหน้าทีมสามารถป้อนรายละเอียดโปรเจกต์ ระบบจะสร้างงานย่อยและคำถามที่เกี่ยวข้องสำหรับสมาชิกทีม หลังจากที่สมาชิกทีมตอบคำถาม ระบบจะวิเคราะห์คำตอบเพื่อหาบทบาทที่เหมาะสมที่สุดและจับคู่กับงานที่เหมาะสม <br><br> ผมรับผิดชอบในการพัฒนาระบบ AI ซึ่งประกอบด้วย 2 ส่วนหลัก ได้แก่ <br><br> โมเดล Gemini ที่ทำหน้าที่ 2 อย่างคือ <br><br> 1. วิเคราะห์ข้อมูลโปรเจกต์จากหัวหน้าทีมเพื่อสร้างงานย่อยและคำถาม <br><br> 2. วิเคราะห์คำตอบของสมาชิกทีมเพื่อหาบทบาทที่เหมาะสมที่สุด <br><br> โมเดล AI ที่ผมพัฒนาและฝึกสอนโดยใช้ Siamese Neural Network เพื่อจับคู่บทบาทของสมาชิกกับงานที่เหมาะสมที่สุดตามบริบทของโปรเจกต์",
         viewOnGithub: "ดูบน GitHub",
         contactTitle: "ติดต่อฉัน",
+        linkedinText: "LinkedIn",
         copyrightText: `© ${new Date().getFullYear()} กันต์ธร. สงวนลิขสิทธิ์`,
         experienceTitle: "ประสบการณ์",
         expCompany1: "Chatrium Grand Bangkok",
@@ -136,7 +142,51 @@ document.addEventListener('DOMContentLoaded', () => {
     // เริ่มต้นภาษา
     const savedLanguage = localStorage.getItem('language') || 'en'; // ถ้าไม่มีให้ใช้ 'en' เป็นค่าเริ่มต้น
     setLanguage(savedLanguage);
+
+    // Fix mobile dropdown behavior
+    handleMobileDropdown();
 });
+
+// Handle mobile dropdown behavior
+function handleMobileDropdown() {
+    const dropdown = document.querySelector('.nav-item.dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    if (dropdown && dropdownToggle && dropdownMenu) {
+        // Check if we're on mobile
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        // Handle dropdown toggle click
+        dropdownToggle.addEventListener('click', function(e) {
+            if (isMobile()) {
+                e.preventDefault();
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+
+        // Close dropdown when language is selected on mobile
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (isMobile()) {
+                    setTimeout(() => {
+                        dropdownMenu.classList.remove('show');
+                    }, 100);
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (!isMobile()) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    }
+}
 
 // ===== END: โค้ดสำหรับสลับภาษา =====
 
