@@ -73,6 +73,7 @@ const translations = {
             <li>Developed Python code to automate Excel.</li>
             <li>Developed internal hotel projects, such as a meeting room booking system and a website chatbot for general inquiries.</li>
         `,
+        heroDownloadCV: "Download CV"
     },
     th: {
         navAbout: "เกี่ยวกับฉัน",
@@ -124,7 +125,8 @@ const translations = {
         backendDatabase: "Backend และฐานข้อมูล",
         toolsDevelopment: "เครื่องมือและการพัฒนา", 
         aiOthers: "AI และอื่นๆ",
-        softSkillsTitle: "ทักษะส่วนบุคคล"
+        softSkillsTitle: "ทักษะส่วนบุคคล",
+        heroDownloadCV : "ดาวน์โหลด CV"
     }
 };
 
