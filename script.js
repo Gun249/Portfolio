@@ -39,6 +39,10 @@ const translations = {
         eduDate2: "2022 - Present",
         eduGpa2: "GPA: 3.70",
         skillsTitle: "My Skills",
+        programmingLanguages: "Programming Languages",
+        backendDatabase: "Backend & Database", 
+        toolsDevelopment: "Tools & Development",
+        aiOthers: "AI & Others",
         softSkillsTitle: "My Soft Skills",
         skillTeamwork: "Teamwork",
         skillPunctuality: "Punctuality",
@@ -116,6 +120,10 @@ const translations = {
             <li>ได้พัฒนาโปรเจคต่างๆภายในโรงแรมเช่น Project ระบบจองห้องประชุม , Chatbot สำหรับคอยตอบปัญหาทั่วไปกับข้อมูลทั่วไปในหน้าเว็บไซต์</li>
         `,
         skillsTitle: "ทักษะทางเทคนิค",
+        programmingLanguages: "ภาษาโปรแกรมมิ่ง",
+        backendDatabase: "Backend และฐานข้อมูล",
+        toolsDevelopment: "เครื่องมือและการพัฒนา", 
+        aiOthers: "AI และอื่นๆ",
         softSkillsTitle: "ทักษะส่วนบุคคล"
     }
 };
@@ -145,6 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fix mobile dropdown behavior
     handleMobileDropdown();
+
+    // Initialize skill progress bars animation
+    initializeSkillBars();
 });
 
 // Handle mobile dropdown behavior
@@ -224,3 +235,29 @@ function initializeTheme() {
 }
 
 // ===== END: Theme Toggle Functionality =====
+
+// ===== Skill Progress Bars Animation =====
+function initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    // Create intersection observer to trigger animation when skills section comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                const level = skillBar.getAttribute('data-level');
+                skillBar.style.width = level + '%';
+                observer.unobserve(skillBar); // Stop observing after animation triggers
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+
+    // Observe all skill progress bars
+    skillBars.forEach(bar => {
+        observer.observe(bar);
+    });
+}
+
+// ===== END: Skill Progress Bars Animation =====

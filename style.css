@@ -226,6 +226,91 @@ section {
   color: white;
 }
 
+/* Skills with level indicators */
+.skills-with-levels {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-with-level {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-with-level:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.skill-percentage {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), #4dabf7);
+  border-radius: 4px;
+  width: 0;
+  transition: width 2s ease-in-out;
+}
+
+/* Skills categories */
+.skills-categories {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-category {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.skill-category-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
 /* ===== 6. Projects Section (ส่วนผลงาน) ===== */
 /* สไตล์ส่วนใหญ่ถูกจัดการโดย Bootstrap แล้ว เราไม่จำเป็นต้องเขียน CSS ส่วนนี้อีก */
 #projects {
@@ -394,6 +479,40 @@ footer {
 
   .section-title {
     font-size: 2rem;
+  }
+
+  /* Mobile responsive for skills with levels */
+  .skills-with-levels {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .skill-with-level {
+    margin-bottom: 15px;
+    padding: 12px;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+
+  .skill-percentage {
+    font-size: 0.8rem;
+  }
+
+  /* Mobile responsive for skill categories */
+  .skills-categories {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+
+  .skill-category {
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+
+  .skill-category-title {
+    font-size: 1.1rem;
   }
 }
 
