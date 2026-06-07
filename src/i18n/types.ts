@@ -33,6 +33,10 @@ export interface Translations {
   expRole1: string
   expDate1: string
   expDesc1: string[]
+  expCompany2: string
+  expRole2: string
+  expDate2: string
+  expDesc2: string[]
   projectsTitle: string
   project1Title: string
   project1Desc: string

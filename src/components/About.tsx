@@ -16,7 +16,7 @@ const softSkillKeys: ('skillTeamwork' | 'skillPunctuality' | 'skillSelfLearning'
 ]
 
 const skillItemClass =
-  'rounded-[5px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3 text-center transition-[transform,background-color] duration-300 hover:-translate-y-[5px] hover:bg-[var(--primary-color)] hover:text-white'
+  'rounded-[5px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3 text-center'
 
 export function About() {
   const { t } = useTranslation()
@@ -30,7 +30,7 @@ export function About() {
         <div className="mx-auto mb-10 max-w-[800px]">
           <h3 className="mb-5 text-center text-[1.5rem] text-[var(--heading-color)]">{t.eduTitle}</h3>
           <div className="space-y-5">
-            <div className="flex items-start gap-5 rounded-lg border border-[var(--border-color)] bg-[var(--surface-color)] p-5 transition-colors duration-300 hover:border-[var(--primary-color)]">
+            <div className="flex items-start gap-5 rounded-lg border border-[var(--border-color)] bg-[var(--surface-color)] p-5">
               <div className="pt-[5px] text-[1.8rem] text-[var(--primary-color)]">
                 <i className="fa-solid fa-graduation-cap" />
               </div>
@@ -41,17 +41,6 @@ export function About() {
                 <p className="mb-[5px] text-[var(--secondary-color)]">{t.eduGpa2}</p>
               </div>
             </div>
-            <div className="flex items-start gap-5 rounded-lg border border-[var(--border-color)] bg-[var(--surface-color)] p-5 transition-colors duration-300 hover:border-[var(--primary-color)]">
-              <div className="pt-[5px] text-[1.8rem] text-[var(--primary-color)]">
-                <i className="fa-solid fa-school" />
-              </div>
-              <div>
-                <h5 className="mb-[5px] font-semibold text-[var(--heading-color)]">{t.eduSchool1}</h5>
-                <p className="mb-[5px] italic text-[var(--text-color)]">{t.eduMajor1}</p>
-                <p className="mb-[5px] text-[var(--secondary-color)]">2016 - 2022</p>
-                <p className="mb-[5px] text-[var(--secondary-color)]">{t.eduGpa1}</p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -60,7 +49,7 @@ export function About() {
           {skillCategories.map(({ titleKey, items }) => (
             <div
               key={titleKey}
-              className="rounded-[10px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 transition-[transform,box-shadow] duration-300 hover:-translate-y-[3px] hover:shadow-[0_6px_20px_var(--shadow)]"
+              className="rounded-[10px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5"
             >
               <h4 className="mb-[15px] border-b-2 border-[var(--border-color)] pb-2 text-center text-[1.2rem] font-semibold text-[var(--primary-color)]">
                 {t[titleKey]}
