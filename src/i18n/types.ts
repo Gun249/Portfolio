@@ -1,0 +1,49 @@
+export type Locale = 'en' | 'th'
+
+export interface Translations {
+  navAbout: string
+  navProjects: string
+  navExperience: string
+  navContact: string
+  heroTitle: string
+  heroViewProjects: string
+  heroDownloadCV: string
+  aboutTitle: string
+  aboutText: string
+  eduTitle: string
+  eduSchool1: string
+  eduMajor1: string
+  eduGpa1: string
+  eduSchool2: string
+  eduMajor2: string
+  eduDate2: string
+  eduGpa2: string
+  skillsTitle: string
+  programmingLanguages: string
+  backendDatabase: string
+  toolsDevelopment: string
+  aiOthers: string
+  softSkillsTitle: string
+  skillTeamwork: string
+  skillPunctuality: string
+  skillSelfLearning: string
+  skillAdaptability: string
+  experienceTitle: string
+  expCompany1: string
+  expRole1: string
+  expDate1: string
+  expDesc1: string[]
+  projectsTitle: string
+  project1Title: string
+  project1Desc: string
+  project2Title: string
+  project2Desc: string
+  project3Title: string
+  project3Desc: string
+  project4Title: string
+  project4Desc: string
+  viewOnGithub: string
+  contactTitle: string
+  linkedinText: string
+  copyrightSuffix: string
+}

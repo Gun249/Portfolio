@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* Tailwind v4 class-based dark mode (matches old [data-theme="dark"] toggle) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --bg-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --text-color: #212529;
+  --heading-color: #000000;
+  --border-color: #dee2e6;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --primary-color: #4dabf7;
+  --secondary-color: #adb5bd;
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-color: #e9ecef;
+  --heading-color: #ffffff;
+  --border-color: #343a40;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
