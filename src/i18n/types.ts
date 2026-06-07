@@ -11,9 +11,6 @@ export interface Translations {
   aboutTitle: string
   aboutText: string
   eduTitle: string
-  eduSchool1: string
-  eduMajor1: string
-  eduGpa1: string
   eduSchool2: string
   eduMajor2: string
   eduDate2: string
